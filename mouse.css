@@ -1,0 +1,26 @@
+body {
+    cursor: url(images/鼠标/鼠标-棕色-0.6.png) 20 20, auto;
+}
+
+a {
+    cursor: url(images/鼠标/鼠标-棕色-0.6.png) 20 20, auto
+}
+
+a:active {
+    cursor: url(images/鼠标/鼠标-棕色-按下-0.6.png) 20 20, alias
+}
+
+p {
+    cursor: url(images/鼠标/鼠标-棕色-0.6.png) 20 20, auto
+}
+
+span {
+    cursor: url(images/鼠标/鼠标-棕色-0.6.png) 20 20, auto;
+    border: 2px solid #7e1a1a;
+}
+
+a:hover {
+    cursor: url(images/鼠标/鼠标-黑色-0.6.png) 20 20, auto
+}
+
+
