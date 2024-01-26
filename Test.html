@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="js/test.js" type="text/javascript" charset="utf-8"></script>
+    <title></title>
+</head>
+<style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    div {
+        position: absolute;
+        font-size: 0
+    }
+    img {
+        display: inline
+    }
+
+    #a{
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    #b{
+        position: absolute;
+        left: 80px;
+        top: 0;
+    }
+
+    #c{
+        position: absolute;
+        left: 0;
+        top: 80px;
+    }
+
+    #d{
+        position: absolute;
+        left: 80px;
+        top: 80px;
+    }
+</style>
+<body>
+<div>
+    <div>
+        <img id='d' src="images/默认碰撞方块.png" alt="默认">
+    </div>
+    <div>
+        <img id='a' src="images/默认碰撞方块.png" alt="默认">
+        <img id='b' src="images/默认碰撞方块.png" alt="默认">
+        <img id='c' src="images/默认碰撞方块.png" alt="默认">
+    </div>
+</div>
+
+<script type="text/javascript">
+    var delta_x=0;
+    var delta_y=0;
+    document.addEventListener('keydown',(e)=>{
+        var ev = e || window.event;
+        switch(ev.keyCode){
+            case 37:
+                delta_x=-1;
+                break;
+            case 38:
+                delta_y=-1;
+                break;
+            case 39:
+                delta_x=1;
+                break;
+            case 40:
+                delta_y=1;
+                break;
+            default:
+                break;
+        }
+    },false);
+    document.addEventListener('keyup',(e)=>{
+        var ev = e || window.event;
+        switch(ev.keyCode){
+            case 37:
+                delta_x=0;
+                break;
+            case 38:
+                delta_y=0;
+                break;
+            case 39:
+                delta_x=0;
+                break;
+            case 40:
+                delta_y=0;
+                break;
+            default:
+                break;
+        }
+    },false);
+    var timer = window.setInterval(()=>{
+        var unit = 10;
+        var p = document.getElementsByTagName('div')[2];
+        console.log("p.id",p.id)
+        var left = window.getComputedStyle(p,null).left;
+        var top = window.getComputedStyle(p,null).top;
+        p.style.left=parseInt(left)+delta_x*unit+'px';
+        p.style.top=parseInt(top)+delta_y*unit+'px';
+    },50);
+</script>
+</body>
+</html>
